@@ -1,8 +1,7 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
-import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
 
-async function roll2d6Plus1() {
+async function roll3d6Plus3() {
   // Create a client transport that connects to our server
   const transport = new StdioClientTransport({
     command: "node",
@@ -19,18 +18,18 @@ async function roll2d6Plus1() {
     // Connect to the server
     await client.connect(transport);
     
-    // Roll 2d6+1
-    const result: CallToolResult = await client.callTool({
+    // Roll 3d6+3
+    const result: any = await client.callTool({
       name: "roll",
       arguments: {
-        num_dice: 2,
+        num_dice: 3,
         sides: 6,
-        modifier: 1
+        modifier: 3
       }
     });
     
-    console.log("Rolling 2d6+1:");
-    console.log(result.content![0].text);
+    console.log("Rolling 3d6+3:");
+    console.log(result.content[0].text);
     
   } catch (error) {
     console.error("Error:", error);
@@ -39,4 +38,4 @@ async function roll2d6Plus1() {
   }
 }
 
-roll2d6Plus1().catch(console.error);
+roll3d6Plus3().catch(console.error);
