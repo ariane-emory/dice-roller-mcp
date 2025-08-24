@@ -43,6 +43,34 @@ async function runClient() {
     });
     console.log("Roll result (3d6+1):", result2);
     
+    // Call the multi_roll tool for D&D character generation
+    const result3 = await client.callTool({
+      name: "multi_roll",
+      arguments: {
+        rolls: [
+          { num_dice: 3, sides: 6 },
+          { num_dice: 3, sides: 6 },
+          { num_dice: 3, sides: 6 },
+          { num_dice: 3, sides: 6 },
+          { num_dice: 3, sides: 6 },
+          { num_dice: 3, sides: 6 }
+        ]
+      }
+    });
+    console.log("D&D character stats:", result3);
+    
+    // Call the multi_roll tool with modifiers
+    const result4 = await client.callTool({
+      name: "multi_roll",
+      arguments: {
+        rolls: [
+          { num_dice: 2, sides: 6, modifier: 1 },
+          { num_dice: 1, sides: 20, modifier: -2 }
+        ]
+      }
+    });
+    console.log("Multi-roll with modifiers:", result4);
+    
   } catch (error) {
     console.error("Error:", error);
   } finally {

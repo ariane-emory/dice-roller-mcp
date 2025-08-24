@@ -93,6 +93,34 @@ def main():
         })
         print("Roll 3d6+1 result:", roll_response2)
         
+        # Multi-roll for D&D character generation (3d6 x 6)
+        multi_roll_response = send_request(proc, "tools/call", {
+            "name": "multi_roll",
+            "arguments": {
+                "rolls": [
+                    {"num_dice": 3, "sides": 6},
+                    {"num_dice": 3, "sides": 6},
+                    {"num_dice": 3, "sides": 6},
+                    {"num_dice": 3, "sides": 6},
+                    {"num_dice": 3, "sides": 6},
+                    {"num_dice": 3, "sides": 6}
+                ]
+            }
+        })
+        print("D&D character stats result:", multi_roll_response)
+        
+        # Multi-roll with modifiers
+        multi_roll_response2 = send_request(proc, "tools/call", {
+            "name": "multi_roll",
+            "arguments": {
+                "rolls": [
+                    {"num_dice": 2, "sides": 6, "modifier": 1},
+                    {"num_dice": 1, "sides": 20, "modifier": -2}
+                ]
+            }
+        })
+        print("Multi-roll with modifiers result:", multi_roll_response2)
+        
     except Exception as e:
         print(f"Error: {e}")
     finally:
