@@ -4,13 +4,9 @@
 
 ## Project Description 
 
-Our goal is to create an MCP server for the Traveller Map (https://travellermap.com) in TypeScript that can be used to access its API.
+ Our goal is use TypeScript to create an MCP server that can roll dice.  It should include a 'roll' tool that takes three arguments: the number of dice, the number of sides on each die, and an integer to add to the resulting total, so as to be able to roll dice in a way equivalent to RPG dice notations like '3d6" or '2d6+1'.
 
 Do not make redundant tools, if two tools do the same thing we don't need both.
-
-### TravellerMap API reference:
-
-Documentation for the TravellerMap API can be found at https://travellermap.com/doc/api. You can use your WebFetch tool to access it.
 
 ## npm's dist folder
 
@@ -66,5 +62,3 @@ Adherence to existing code patterns in `game.js`, `style.css`, and `index.html` 
           if (foo) 
             bar(); 
         - If a while loop's body contains only a single statement and the curly braces could be omitted, do so.
-
-
